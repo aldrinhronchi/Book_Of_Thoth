@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32328.378
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Book_Of_Thoth", "Book_Of_Thoth.csproj", "{033AB28B-4302-4182-BB6E-1B1588B5DC38}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{033AB28B-4302-4182-BB6E-1B1588B5DC38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{033AB28B-4302-4182-BB6E-1B1588B5DC38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{033AB28B-4302-4182-BB6E-1B1588B5DC38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{033AB28B-4302-4182-BB6E-1B1588B5DC38}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DF4E76CF-4237-44A9-A90C-8356B60785E2}
+	EndGlobalSection
+EndGlobal
