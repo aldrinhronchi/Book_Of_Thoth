@@ -22,11 +22,11 @@ namespace Book_Of_Thoth.The_Great_Library_of_Alexandria
                     var nome = new DirectoryInfo(nomePastas).Name;
                     Console.WriteLine(nome);
                     string[] fileEntries = Directory.GetFiles(nomePastas);
-                    //foreach (string fileName in fileEntries)
-                    //{
+                    foreach (var fileName in fileEntries)
+                    {
 
-                    //    Console.WriteLine(fileName);
-                    //}
+                        Console.WriteLine(fileName);
+                    }
                     dic1.Add(nomePastas, fileEntries);
                 }
             }
