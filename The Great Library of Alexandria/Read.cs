@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Book_Of_Thoth.Work;
+using CsvHelper;
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -75,6 +78,55 @@ namespace Book_Of_Thoth.The_Great_Library_of_Alexandria
             Console.WriteLine(valor);
             */
 
+        }
+
+       public static void CNABReader(Int32 tipo)
+        {
+            string localpath = @"D:\work\xmlcompress\Book_Of_Thoth\Book_Of_Thoth\Upload\";
+           
+            foreach (var file in Directory.GetFiles(@"C:\Users\Terore\Downloads\ANEXOS_EMAIL\CNAB", "*.*", SearchOption.AllDirectories))
+            {
+                switch (tipo)
+                {
+                    case 500:
+                        #region CNAB500
+                        List<CNAB> desemborso = new List<CNAB>();
+                        string[]? a = File.ReadAllLines(file);
+                        List<String> arq = new List<String>(a);
+                        string codcedente = arq[0].Substring(35, 11);
+                        arq.RemoveRange(0, 1);
+                        arq.RemoveRange(arq.Count - 1, 1);
+
+                        foreach (string line in arq)
+                        {
+                            CNAB cnab = new CNAB();
+                            cnab.lastro = line.Substring(47, 16);
+                            cnab.valor = line.Substring(228, 13);
+                            cnab.forn = line.Substring(407, 40);
+                            cnab.CodCedente = codcedente;
+                            Console.WriteLine(cnab.lastro);
+                            Console.WriteLine(cnab.valor);
+                            Console.WriteLine(cnab.forn);
+                            Console.WriteLine(cnab.CodCedente);
+                            desemborso.Add(cnab);
+                        }
+                        using (var writer = new StreamWriter($"{localpath}/desembolsos.csv"))
+                        using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
+                        {
+                            csv.WriteRecords(desemborso);
+                        }
+                        #endregion CNAB500
+                        break;
+                    default:
+                       
+                        throw new Exception($"Nao Implementado");
+                }
+
+
+
+
+            }
+           
         }
     }
 }
