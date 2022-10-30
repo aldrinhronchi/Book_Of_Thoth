@@ -19,11 +19,11 @@ namespace Book_Of_Thoth
             //'=================================================================================================================================================='
            
             string separator = Generate.Separator("=");
-            string localpath = @"D:\work\xmlcompress\Book_Of_Thoth\Book_Of_Thoth\Upload\";
+            string localpath = @"C:\Users\Terore\Desktop\ConceptOne\Task\FIDCRevenda\Tests\XML\10102022";
             string Errors = "";
             string StackErrors = "";
             IDictionary<string, string[]> dicRevendas = new Dictionary<string, string[]>();
-
+            string path = @"D:\codes\Book-of-Thoth\Book_Of_Thoth\Upload\";
             string localtempPath = $"{localpath}/XML/";
             string localzipPath = $"{localpath}/Zip/";
             string localexcelPath = $"{localpath}/Excel/";
@@ -37,7 +37,9 @@ namespace Book_Of_Thoth
             //-'-------------------------------------------------------------------------------------------------------------------------------------------------'
             Edge(separator, "Green", "I am Running!");
             //'--------------------------------------------------------------------------------------------------------------------------------------------------'
-            Read.CNABReader(500);
+
+            String s = "suruba";
+            List<char> listChar = s.ToCharArray().ToList();
 
             //var a = File.ReadAllLines(@"C:\Users\Terore\Desktop\ConceptOne\Task\CORTEVA CNAB ERROR\allregisters.txt");
             //var notfound = a.Distinct().ToList();

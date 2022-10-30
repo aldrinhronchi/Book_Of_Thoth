@@ -7,7 +7,8 @@ using System.Web;
 namespace Book_Of_Thoth.Work
 { 
     public class Developer
-{
+    {
+        /*
     public static Models.Developer GetDev(Int32 ID = 0)
     {
         Models.Developer dev = new Models.Developer();
@@ -198,7 +199,7 @@ namespace Book_Of_Thoth.Work
                     db.EstoqueArquivo.Add(Arquivo);
                     db.SaveChanges();
                 }
-                */
+                *//*
                 if (!Manter)
                 {
                     System.IO.File.Delete($"{PathSFTP}/{FileName}");
@@ -248,7 +249,7 @@ namespace Book_Of_Thoth.Work
                     db.EstoqueArquivoYara.Add(ArquivoYara);
                     db.SaveChanges();
                 }
-                */
+                *//*
                 if (!Manter)
                 {
                     System.IO.File.Delete($"{PathSFTP}/{FileName}");
@@ -314,6 +315,6 @@ namespace Book_Of_Thoth.Work
         List<String> robots = dev.ROBOS.Split(',').ToList();
 
         return robots;
-    }
+    }*/
 }
 }
