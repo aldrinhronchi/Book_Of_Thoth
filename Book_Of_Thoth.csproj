@@ -29,4 +29,8 @@
     <PackageReference Include="CsvHelper" Version="28.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\Terore\Downloads\PokeApiNet-master\PokeApiNet-master\PokeApiNet\PokeApiNet.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1,4 +1,6 @@
-﻿namespace Book_Of_Thoth.The_Great_Library_of_Alexandria
+﻿using System.Text.RegularExpressions;
+
+namespace Book_Of_Thoth.The_Great_Library_of_Alexandria
 {
     internal class Kata
     {
@@ -37,31 +39,16 @@
         // Strip Comments
         public static string StripComments(string text, string[] commentSymbols)
         {
-            string result = "";
-            foreach (string symbol in commentSymbols)
+            var lines = text.Split("\n");
+            List<string> result = new List<string>();
+            for (int i = 0; i < commentSymbols.Length; i++)
             {
-                string[] txt = text.Split("\n", StringSplitOptions.TrimEntries);
-                foreach (string line in txt)
+                foreach (string line in lines)
                 {
-                    int foundS1 = line.IndexOf(symbol);
-                    if (foundS1 != -1)
-                    {
-                        int count = line.Length - foundS1;
-                        string nline = line.Remove(foundS1, count);
-                        nline = nline.Trim();
-                        result = result + nline + "\n";
-                    }
-                    else
-                    {
-                        string nline = line.Trim();
-                        result = result + nline + "\n";
-                    }
-                    Console.WriteLine(result);
+                    result.Add(Regex.Replace(line, "\\$" + commentSymbols[i] + ".+", string.Empty).Trim());
                 }
-                text = result;
             }
-            Console.WriteLine(text);
-            return text;
+            return string.Join("\n", result);
             //return Regex.Replace(text, delimiter + ".+", string.Empty).Trim();
         }
 
@@ -114,21 +101,60 @@
             return n >= 10 ? "Great, now move on to tricks" : "Keep at it until you get it";
         }
 
+        //Speed Control
+
         public static int Gps(int s, double[] x)
         {
-            // your code
             if (x.Length <= 1)
             {
                 return 0;
             }
 
-            double[] output = new double[1000];
-            for (int index = 0; index < x.Length; index++)
+            double ratio = s / 3600f;
+
+            double maxAvg = 0;
+            double secStart = x[0];
+            for (int i = 1; i < x.Length; i++)
             {
-                output[index] = (x[index + 1] - x[index]) * 3600 / s;
+                var secEnd = x[i];
+                var speed = Math.Floor((secEnd - secStart) / ratio);
+                if (speed > maxAvg)
+                {
+                    maxAvg = speed;
+                }
+                secStart = secEnd;
             }
 
-            return (int)output.Max();
+            return (int)maxAvg;
+        }
+
+        // Sum Arrays
+        public static double SumArray(double[] array)
+        {
+            if (array.Length == 0)
+            {
+                return 0;
+            }
+            double sum = 0;
+            for (int i = 0; i < array.Length; i++)
+            {
+                sum = array[i] + sum;
+            }
+            return sum;
+        }
+
+        // Find the smallest integer in the array
+        public static int FindSmallestInt(int[] args)
+        {
+            int lil = args[0];
+            for (int i = 0; i < args.Length; i++)
+            {
+                if (args[i] < lil)
+                {
+                    lil = args[i];
+                }
+            }
+            return lil;
         }
     }
 }
